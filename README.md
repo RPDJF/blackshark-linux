@@ -124,6 +124,19 @@ blackshark-ctl status
 
 Before using the headset on Linux, follow the firmware requirement in [Requirements](#requirements).
 
+### Updating the NixOS package
+
+If you keep a local copy of the package definition, run:
+
+```bash
+cd blackshark-linux-nix
+./nixos-update-blackshark-linux.sh
+```
+
+It updates the `version` and `sha256` in `app-blackshark-linux.nix` to the latest tag. If anything breaks, there is a `app-blackshark-linux.nix.bak` you can restore.
+
+If the package file stops working for the newest tags, open an issue on the repo.
+
 ### Building locally for development
 
 `dev-install-nix.sh` is provided for development or for situations where you specifically need to build and install the binaries from a checkout. It is not the normal NixOS installation path: it installs files imperatively into `~/.local/bin` and `~/.config/systemd/user`, outside the Nix store and your NixOS configuration.
